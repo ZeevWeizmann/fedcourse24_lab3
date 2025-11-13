@@ -14,7 +14,6 @@ for name, log_path in experiments.items():
     with open(full_path) as f:
         text = f.read()
 
-    # Извлечём accuracy по каждому p
     pattern = r"p=(\d\.\d):.*accuracy=(\d+\.\d+)"
     matches = re.findall(pattern, text)
 
@@ -22,6 +21,6 @@ for name, log_path in experiments.items():
     for p_str, acc_str in matches:
         p = float(p_str)
         acc = float(acc_str)
-        writer.add_scalar("Accuracy/final", acc, int(p * 10))  # шаг = p*10
+        writer.add_scalar("Accuracy/final", acc, int(p * 10))  
     writer.close()
     print(f" Written TensorBoard logs for {name}")
