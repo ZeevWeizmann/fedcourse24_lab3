@@ -358,6 +358,9 @@ https://zeevweizmann.github.io/lab3_flower/
 **GitHub Repository:**  
 https://github.com/ZeevWeizmann/fedcourse24_lab3
 
+**Lab_Report.pdf**  
+https://github.com/ZeevWeizmann/fedcourse24_lab3/blob/main/Lab_Report.pdf
+
 ## Custom Implementation Structure
 
 For the Bonus Exercise (Federated Distillation), a dedicated folder was added inside  
