@@ -75,6 +75,75 @@ This workaround is documented in Flower GitHub Issue #3412.
 
 ---
 
+### 2.1 Questions and Answers (based on the official Flower PyTorch tutorial)
+
+#### Q1 — What are the two applications in a basic Flower setup?
+
+**A1.**  
+Flower uses two main applications:
+
+- **ServerApp** — coordinates training rounds, aggregates client updates, keeps global model state.
+- **ClientApp** — performs local training/evaluation and sends updates back to the server.
+
+---
+
+#### Q2 — How do clients and the server communicate?
+
+**A2.**  
+Communication uses a `Message` object carrying a `RecordDict`, which may contain:
+
+- **ArrayRecord** — model parameters
+- **MetricRecord** — metrics like loss/accuracy
+- **ConfigRecord** — settings such as batch size, epochs, or other flags
+
+This structured protocol enables flexible message passing.
+
+---
+
+#### Q3 — How is the training function defined on clients?
+
+**A3.**  
+Training is defined using the decorator:
+
+```python
+@app.train()
+```
+
+The function must accept two arguments:
+
+- `Message`
+- `Context`
+
+Flower automatically invokes this function each training round.
+
+---
+
+#### Q4 — Difference between `@app.evaluate` on server and client?
+
+**A4.**
+
+- **Client-side:** computes local validation metrics and returns them to the server.
+- **Server-side:** aggregates metrics from all clients or evaluates the global model.
+
+---
+
+#### Q5 — What is the purpose of the `Context` object? How can parameters be modified?
+
+**A5.**  
+The `Context` object:
+
+- provides access to configuration from `pyproject.toml`,
+- can store persistent client state across calls.
+
+Simulation parameters can be modified:
+
+1. By editing `pyproject.toml`, or
+2. From the command line:
+
+```bash
+flwr run . --run-config "num-server-rounds=5 learning-rate=0.05"
+```
+
 ## 3. Exercise 8 — Tackling Device Heterogeneity with FjORD
 
 ### Objective
