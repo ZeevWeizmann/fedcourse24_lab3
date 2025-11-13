@@ -31,3 +31,4 @@ __pycache__/
 # Allow only these two root images back
 !fjord_reference.png
 !fjord_tb.png
+echo ".DS_Store" >> .gitignore
