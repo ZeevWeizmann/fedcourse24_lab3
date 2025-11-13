@@ -297,31 +297,51 @@ Despite CPU-only limitations, key findings of both **FjORD** and **FD** papers w
 
 ## 7. References
 
-```
-@article{chang2019federateddistillation,
-  title={Communication-efficient on-device machine learning: Federated distillation and augmentation under non-IID private data},
-  author={Chang, Haw-Shiuan and others},
-  year={2019}
-}
+### Chang et al., 2019
 
-@article{fjord_paper,
-  title={FjORD: Fair and Accurate Federated Learning under Heterogeneous Targets with Ordered Dropout},
-  year={2022}
-}
+**Communication-Efficient On-Device Machine Learning: Federated Distillation and Augmentation under Non-IID Private Data**  
+https://arxiv.org/abs/1907.01143
 
-@misc{flower_fjord,
-  title={FjORD Baseline},
-  year={2025},
-  howpublished={\url{https://flower.ai/docs/baselines/fjord.html}}
-}
+### FjORD Paper, 2022
 
-@misc{flower_tutorial,
-  title={Get Started with Flower},
-  year={2025},
-  howpublished={\url{https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html}}
-}
-```
+**FjORD: Fair and Accurate Federated Learning under Heterogeneous Targets with Ordered Dropout**  
+https://arxiv.org/abs/2205.11465
 
----
+### Flower Baseline: FjORD, 2025
 
-End of README.md
+**FjORD Baseline Documentation (Flower)**  
+https://flower.ai/docs/baselines/fjord.html
+
+### Flower Tutorial: Get Started with Flower, 2025
+
+**Get Started with Flower (PyTorch)**  
+https://flower.ai/docs/framework/tutorial-series-get-started-with-flower-pytorch.html
+
+## Project Access
+
+The complete Lab 3 report (Flower Framework, FjORD, and Federated Distillation)  
+is publicly available at the following GitHub Pages link:
+
+**Project Web Page:**  
+https://zeevweizmann.github.io/lab3_flower/
+
+**GitHub Repository:**  
+https://github.com/ZeevWeizmann/fedcourse24_lab3
+
+## Custom Implementation Structure
+
+For the Bonus Exercise (Federated Distillation), a dedicated folder was added inside  
+the Flower Baselines directory:flower/baselines/federated_distillation/
+
+This folder contains the full implementation of my custom Federated Distillation pipeline:
+
+- `client_fd.py` — client logic (local training, evaluation, logits export)
+- `server_fd.py` — custom server-side aggregation for distillation
+- `run_fd.sh` — launcher script for server and clients
+- `data/` — CIFAR-10 dataset (local copy)
+- `logs/` — client and server logs from the experiment
+
+Only the relevant `.py` and `.sh` files were included in the repository,  
+while large dataset files were excluded through `.gitignore`.
+
+This structure keeps the repository clean while preserving all necessary code for reproducibility.
