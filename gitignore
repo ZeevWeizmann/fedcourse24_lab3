@@ -1,0 +1,33 @@
+# Ignore everything by default
+*
+
+# --- Allow essential root files ---
+!.gitignore
+!README.md
+!fjord_reference.png
+!fjord_tb.png
+
+# --- Allow ONLY Python and Shell files anywhere ---
+!*.py
+!*.sh
+
+# --- Block binary/data/cache explicitly (safety net) ---
+__pycache__/
+*.pyc
+*.pkl
+*.tar.gz
+*.zip
+*.gz
+*.json
+*.html
+*.txt
+*.csv
+*.md
+*.log
+*.png
+*.jpg
+*.jpeg
+
+# Allow only these two root images back
+!fjord_reference.png
+!fjord_tb.png
