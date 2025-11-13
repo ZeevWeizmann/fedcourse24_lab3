@@ -270,17 +270,17 @@ global optimum, which lowers the averaged global accuracy.
 ### Without Knowledge Distillation (`no_KD`)
 
 - accuracy drops more sharply,
-- trajectories diverge across clients,
-- local overfitting and client drift are stronger.
+- the different evaluation series diverge,
+- the training signal shows stronger instability.
 
 ### With Knowledge Distillation (`with_KD`)
 
 - the accuracy decreases more slowly,
 - curves are smoother and more stable,
-- variance across clients is significantly reduced — KD mitigates client drift.
+- the variance between evaluation series is reduced.
 
-Overall, Knowledge Distillation stabilizes client updates and reduces variance,
-which aligns with the behaviour reported in the official FjORD results.
+This indicates that KD stabilizes the learning dynamics and suppresses “client drift”-like instability,
+even though the lines represent internal measurements rather than per-client trajectories.
 
 <p align="center">
   <img src="fjord_tb.png" width="80%" alt="FjORD TensorBoard curves">
@@ -330,7 +330,7 @@ In our simplified CPU setup:
 - but Ordered Dropout in FjORD still simulates variable submodel widths,
 - KD strongly stabilizes differences between effective p values.
 
-Thus, the **qualitative trend** matches the FjORD paper.
+Thus, even under a simplified CPU-only setup, our results align with the expected FjORD dynamics.
 
 ---
 
