@@ -6,12 +6,13 @@
 !README.md
 !fjord_reference.png
 !fjord_tb.png
+!Lab_Report.pdf
 
 # --- Allow ONLY Python and Shell files anywhere ---
 !*.py
 !*.sh
 
-# --- Block binary/data/cache explicitly (safety net) ---
+# --- Block binary/data/cache explicitly ---
 __pycache__/
 *.pyc
 *.pkl
@@ -28,7 +29,10 @@ __pycache__/
 *.jpg
 *.jpeg
 
-# Allow only these two root images back
+# Re-allow specific images and PDF again (overrides above)
 !fjord_reference.png
 !fjord_tb.png
-echo ".DS_Store" >> .gitignore
+!Lab_Report.pdf
+
+# Ignore Mac system file
+.DS_Store
