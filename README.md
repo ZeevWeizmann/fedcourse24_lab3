@@ -193,11 +193,19 @@ Because GPU computation is long:
 
 ### 4.2 Observations (TensorBoard)
 
-- accuracy increases over rounds,
+<p align="center">
+  <img src="fjord_tb.png" width="80%" alt="FjORD TensorBoard curves">
+</p>
+
+- accuracy increases over local training steps,
 - KD produces smoother, more stable curves,
-- client variance is significantly reduced under KD.
+- client variance is significantly reduced under KD (the accuracy trajectories show it).
 
 This matches the official FjORD behaviour.
+
+<p align="center">
+  <img src="fjord_reference.png" width="80%" alt="Official FjORD accuracy results">
+</p>
 
 ### 4.3 Which version works better?
 
