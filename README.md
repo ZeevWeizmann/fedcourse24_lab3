@@ -193,15 +193,37 @@ Because GPU computation is long:
 
 ### 4.2 Observations (TensorBoard)
 
+In FjORD, the accuracy curves **decrease** as we increase the number of
+**local training steps**.  
+This behaviour is expected: with more local updates, clients drift away from the
+global optimum, which lowers the averaged global accuracy.
+
+### Without Knowledge Distillation (`no_KD`)
+
+- accuracy drops more sharply,
+- trajectories diverge across clients,
+- local overfitting and client drift are stronger.
+
+### With Knowledge Distillation (`with_KD`)
+
+- the accuracy decreases more slowly,
+- curves are smoother and more stable,
+- variance across clients is significantly reduced — KD mitigates client drift.
+
+Overall, Knowledge Distillation stabilizes client updates and reduces variance,
+which aligns with the behaviour reported in the official FjORD results.
+
 <p align="center">
   <img src="fjord_tb.png" width="80%" alt="FjORD TensorBoard curves">
 </p>
 
-- accuracy increases over local training steps,
-- KD produces smoother, more stable curves,
-- client variance is significantly reduced under KD (the accuracy trajectories show it).
+### Comparison with Official FjORD Results
 
-This matches the official FjORD behaviour.
+The official FjORD paper reports the same qualitative behaviour:
+
+- smoother and more stable accuracy curves under KD,
+- reduced client variance,
+- mitigated drift under heterogeneous data.
 
 <p align="center">
   <img src="fjord_reference.png" width="80%" alt="Official FjORD accuracy results">
