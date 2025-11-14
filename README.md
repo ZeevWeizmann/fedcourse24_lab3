@@ -422,7 +422,7 @@ The complete Lab 3 report (Flower Framework, FjORD, and Federated Distillation)
 is publicly available at the following GitHub Pages link:
 
 **Project Web Page:**  
-https://zeevweizmann.github.io/lab3_flower/
+https://zeevweizmann.github.io/fedcourse24_lab3/
 
 **GitHub Repository:**  
 https://github.com/ZeevWeizmann/fedcourse24_lab3
